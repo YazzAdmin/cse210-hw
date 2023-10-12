@@ -36,12 +36,53 @@ public class Journal
             entry.ViewEntry();
         }
     }
+
+    public void SaveToFile(List<Journal>listEntries)
+    {
+            Console.WriteLine("What is the name of the file?");
+            string filename = Console.ReadLine();
+
+            using(StreamWriter outputFile = new StreamWriter (filename))
+            {
+               foreach (Entry entry in _listEntries)
+                {
+                    outputFile.WriteLine($"{entry._insertDate}|{entry._promptGenertn}|{entry._entry} ");
+                }
+           
+                
+            }
+    }
+    public void SaveToFile()
+    {
+
+    }
     public void LoadFile() 
     {
 
     }
-    public void SaveFile() 
-    {
+    public void Load(string filename) {
 
+      
+        Console.WriteLine("");     
+        string[] lines = System.IO.File.ReadAllLines(filename);
+        {
+            foreach (string line in lines)
+                {
+                    Entry entry = new Entry();
+                    string[] parts = line.Split("|");
+                    
+                    entry._insertDate = parts[0];
+                    entry._promptGenertn = parts[1];
+                    entry._entry = parts[2];
+                    
+                    _listEntries.Add(entry);
+
+
+                }
+
+        }
     }
+
+
+
 }
