@@ -39,45 +39,46 @@ public class Journal
 
     public void SaveToFile()
     {
-            Console.WriteLine("What is the name of the file?");
-            string filename = Console.ReadLine();
+        Console.WriteLine("What is the name of the file?");
+        string filename = Console.ReadLine();
 
-            using(StreamWriter outputFile = new StreamWriter (filename))
+        using(StreamWriter outputFile = new StreamWriter (filename))
+        {
+            foreach (Entry entry in _listEntries)
             {
-               foreach (Entry entry in _listEntries)
-                {
-                    outputFile.WriteLine($"{entry._insertDate}|{entry._promptGenertn}|{entry._entry} ");
-                }
+                outputFile.WriteLine($"{entry._insertDate}|{entry._promptGenertn}|{entry._entry} ");
+            }
            
                 
-            }
+        }
     }
    
-    public void LoadFile() 
-    {
+   
+    public List<Entry> LoadFile() {
+        List<Entry> updatedFile = new List<Entry>();
 
-    }
-    public void Load(string filename) {
-
-      
+        Console.WriteLine("What is the name of the file?");
+        string filename = Console.ReadLine();
         Console.WriteLine("");     
         string[] lines = System.IO.File.ReadAllLines(filename);
+        
+        foreach (string line in lines)
         {
-            foreach (string line in lines)
-                {
-                    Entry entry = new Entry();
-                    string[] parts = line.Split("|");
-                    
-                    entry._insertDate = parts[0];
-                    entry._promptGenertn = parts[1];
-                    entry._entry = parts[2];
-                    
-                    _listEntries.Add(entry);
+            
+            string[] parts = line.Split("|");
+            Entry entry = new Entry();
 
+            entry._insertDate = parts[0];
+            entry._promptGenertn = parts[1];
+            entry._entry = parts[2];
+                    
+            updatedFile.Add(entry);
 
-                }
 
         }
+
+        _listEntries = updatedFile;
+        return _listEntries;
     }
 
 
