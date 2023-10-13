@@ -32,7 +32,7 @@ class Program
                 journal.LoadFile();
             }
 
-              if (choice == "4")
+            if (choice == "4")
             {
                 journal.SaveToFile(); 
             }

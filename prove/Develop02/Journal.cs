@@ -37,7 +37,7 @@ public class Journal
         }
     }
 
-    public void SaveToFile(List<Journal>listEntries)
+    public void SaveToFile()
     {
             Console.WriteLine("What is the name of the file?");
             string filename = Console.ReadLine();
@@ -52,10 +52,7 @@ public class Journal
                 
             }
     }
-    public void SaveToFile()
-    {
-
-    }
+   
     public void LoadFile() 
     {
 
