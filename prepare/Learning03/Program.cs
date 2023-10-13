@@ -1,36 +1,27 @@
 using System;
+using System.Xml.Schema;
 
 class Program
 {
     static void Main(string[] args)
-    Journal journal = new Journal(); string choice = "0";
+    {
+        Fraction firstconstructor = new Fraction();
+        Console.WriteLine(firstconstructor.getFractionString());
+        Console.WriteLine(firstconstructor.getDecimalValue());
+
+        Fraction constructor2 = new Fraction(5);
+        Console.WriteLine(constructor2.getFractionString());
+        Console.WriteLine(constructor2.getDecimalValue());
+
+        Fraction thirdfraction = new Fraction(3,4);
+        Console.WriteLine(thirdfraction.getFractionString());
+        Console.WriteLine(thirdfraction.getDecimalValue());
+
+        Fraction fraction4 = new Fraction(1,3);
+        Console.WriteLine(fraction4.getFractionString());
+        Console.WriteLine(fraction4.getDecimalValue());
+    }
 
     
-    do { Console.WriteLine("Please select one of the following choices: "); 
-    }
-    Console.WriteLinej("1. Write");
-    Console.WriteLine("2. Display");
-    Console.WriteLine("3. Load"); 
-    Console.WriteLine("4. Save");
-    Console.WriteLine("5. Quit");
-    Console.Write("What would you like to do? ");
     
-    choice = Console.ReadLine();
-    if (choice == "1")
-    {
-        journal.AddEntry(); 
-    }
-    if (choice == "2")
-{
-    { journal.Display(); }
-}
-    if (choice == "3")
-    {
-        journal.LoadFile();
-    }
-    if (choice == "4")
-    {
-       journalournal.SaveFile();
-    }
-    while(choice != "5");
 }
