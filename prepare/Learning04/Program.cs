@@ -1,14 +1,12 @@
 using System;
-
+ 
 class Program
 {
     static void Main(string[] args)
     {
-        DisplayWelcome();
-    }
-    static void DisplayWelcome()
-    {
-        Console.WriteLine($"Welcome to the program!");
-        
+        // Console.WriteLine("Hello Learning04 World!");
+ 
+        Assignment assignment = new Assignment("Samuel Bennett", "Multiplication");
+        Console.WriteLine(assignment.GetSummary());
     }
 }
