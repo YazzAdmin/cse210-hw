@@ -4,23 +4,15 @@ class Word {
     private Boolean _visibility;
 
 
-
-
-
-    // constructors
-     public Word (){ 
+    public Word (){ 
 
     }
-    public Word (string word , Boolean visibility){   /// van los parametros?
-        _word = word ;   // NOTA DEL MAESTRO
-        _visibility = visibility;   // NOTA DEL MAESTRO
+    public Word (string word , Boolean visibility){ 
+        _word = word ;  
+        _visibility = visibility;
     }
 
 
-
-
-
-    //setters and getters
     public void SetWord(string word ){
         _word = word;
     }
@@ -39,7 +31,7 @@ class Word {
 
     // methods
 
-    // NOTA DEL MAESTRO: aqui debe de haber un metodo para cambiar la visibilidad
+    // NOTemethod is needed to change the visibility.
 
 
 }
