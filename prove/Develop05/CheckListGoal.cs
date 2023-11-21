@@ -23,6 +23,11 @@ public class CheckListGoal: Goal
     {
         return _numberCompleted;
     }
+
+    public int Getbonus()
+    {
+        return _bonus;
+    }
     public override void RecordEvent()
     {
 
@@ -34,11 +39,20 @@ public class CheckListGoal: Goal
     return _isComplete;
     }
 
-    public void setisComplete(bool _iscomplete)
+   public void setbonus(int bonus)
     {
-    _isComplete = _iscomplete;
+        _bonus = bonus;
     }
 
+ public void settotalCompleted(int totalCompleted)
+    {
+        _totalCompleted = totalCompleted;
+    }
+
+public void setnumberCompleted(int numberCompleted)
+    {
+        _numberCompleted = numberCompleted;
+    }
 
 
     // virtual GetGoalsSaved()

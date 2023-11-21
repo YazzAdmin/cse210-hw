@@ -1,4 +1,5 @@
 using System;
+using System.IO.Enumeration;
 
 
 class Program
@@ -13,11 +14,12 @@ class Program
         int points;
         int bonus;
         int totalCompleted;
-        
+        int totalPoints = 0;
+        string filename;
 
         do{
 
-        
+        Console.WriteLine($"You have {totalPoints}");
         Console.WriteLine("Menu Selection:");
         Console.WriteLine("1. Start New Goal");
         Console.WriteLine("2. List Goals");
@@ -117,15 +119,79 @@ class Program
                         n++;
                     }
                     break ;
-                    case 3:
+                    case 3: 
+                    Console.WriteLine("What is the filename for the goal file?"); 
+                    filename = Console.ReadLine();
+                    using(StreamWriter outputFile = new StreamWriter (filename))
+                    {
+                        outputFile.WriteLine($"{totalPoints}");
+                        foreach(Goal g in goals)
+                        {
+                            if (g is SimpleGoal)
+                            {
+                                outputFile.WriteLine($"SimpleGoal,{g.GetGoalName()},{g.GetGoaldescription()},{g.GetGoalPoints()},{g.GetIsComplete()}");
+                            }
+                            else if (g is EternalGoal)
+                            {
+                                outputFile.WriteLine($"EternalGoal,{g.GetGoalName()},{g.GetGoaldescription()},{g.GetGoalPoints()}");
+                            }
+                            else 
+                            {
+                                outputFile.WriteLine($"CheckListGoal,{g.GetGoalName()},{g.GetGoaldescription()},{g.GetGoalPoints()},{((CheckListGoal)g).Getbonus()},{((CheckListGoal)g).GettotalCompleted()},{((CheckListGoal)g).GetnumberCompleted()}");
+                            }
+                        }
+                    
+                            
+                    }
                     break;
                     case 4:
+                    Console.WriteLine("What is the filename for the goal file?"); 
+                    filename = Console.ReadLine();
+                    string[] lines = System.IO.File.ReadAllLines(filename); 
+                    int index = 0;
+
+                    foreach (string line in lines)
+                    { 
+                      string[] parts = line.Split(",");  
+                      if (index > 0)
+                      {                      
+                        if (parts[0] == "SimpleGoal")
+                        {
+                            SimpleGoal simpleGoal = new SimpleGoal(parts[1],parts[2],int.Parse(parts[3]),bool.Parse(parts[4]));
+                            goals.Add(simpleGoal);
+                        }
+                        else if (parts[0] == "CheckListGoal")
+                        {
+                            CheckListGoal checkListGoal = new CheckListGoal(int.Parse (parts[5]),int.Parse (parts[6]),int.Parse(parts[4]),parts[1],parts[2],int.Parse(parts[3]));
+                            goals.Add(checkListGoal);
+                        } 
+                        
+                        else
+                        {
+                            EternalGoal eternalGoal = new EternalGoal(parts[1],parts[2],int.Parse(parts[3]));
+                            goals.Add(eternalGoal);
+                        }
+                    }
+                    else
+                    {
+                        totalPoints = int.Parse(((parts[0])));
+                    }
+                    index++;
+    
+                    }
+             
                     break;
                     case 5:
+                    int index2 = 1;
+                    Console.WriteLine("The goals are:");
+                    foreach(Goal g in goals)
+                    {
+                        Console.WriteLine($"{index2}. {g.GetGoalName}");
+                    }
+                    Console.WriteLine("Which goal did you accomplish?");
                     break;
-            }
-           
-        //   Console.Clear();  
+    }
+            
         } while(option!= 6);
           
     }

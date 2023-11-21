@@ -1,0 +1,4 @@
+0
+SimpleGoal,reading,Read for twenty minutes.,50,False
+EternalGoal,health,To eat healthy.,100
+CheckListGoal,grocery,list of groceries.,50,500,3,0

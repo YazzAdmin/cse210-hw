@@ -23,24 +23,37 @@ public abstract class Goal
         return _description;
     }
 
-  
+    public int GetGoalPoints()
+    {
+        return _points;
+    }
 
+    public bool GetIsComplete()
+    {
+        return _isComplete;
+  
+    }
     // public virtual string GetGoalsSaved()
     // {
         
     // }
 
-    protected void SetName(string name)
+    public void SetName(string name)
     {
         _name = name;
     }
-     protected void SetDescription(string description)
+     public void SetDescription(string description)
     {
         _description = description;
     }
-    protected void SetPoints(int points)
+    public void SetPoints(int points)
     {
         _points = points;
+    }
+    
+    public void setisComplete(bool isComplete)
+    {
+        _isComplete = isComplete;
     }
 
 }
