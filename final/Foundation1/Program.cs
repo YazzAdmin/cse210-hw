@@ -22,7 +22,7 @@ class Program
 
         video1._comments.Add(new Comment { _personName = "Karol", _text = "This is something that I needed to know!" });
         video1._comments.Add(new Comment { _personName = "Shelly", _text = "Let's put this to practice." });
-        video1._comments.Add(new Comment { _personName = "Sarah", _text = "Hoe convenient I ran into this video!" });
+        video1._comments.Add(new Comment { _personName = "Sarah", _text = "How convenient I ran into this video!" });
         
 
         video2._comments.Add(new Comment { _personName = "Sandy", _text = "Oprah has a lot of wisdom!" });
