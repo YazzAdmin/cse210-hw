@@ -9,7 +9,7 @@ public class Video
 
     public Video()
     {
-        _comments = new List<Comment>();
+        _comments =new List<Comment>();
     }
 
     public int GetNumberOfComments()
@@ -19,6 +19,17 @@ public class Video
 
     public void Display()
     {
-        Console.WriteLine($"{_title} ({_author}) {_length}");
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Author: {_author}");
+        Console.WriteLine($"Length: {_length}seconds");
+        Console.WriteLine($"Number of Comments: "+GetNumberOfComments());
+        Console.WriteLine("Comments: ");
+
+        foreach(Comment comment in _comments)
+        {
+            Console.WriteLine($"~{comment._personName} : {comment._text}");
+        }
+
+        Console.WriteLine();
     }
 }

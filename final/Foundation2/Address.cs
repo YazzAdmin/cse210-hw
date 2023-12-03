@@ -14,7 +14,7 @@ public class Address
         _country = country;
     }
 
-    public bool IsInUSA()
+    public bool LivingInUSA()
     {
         return _country.ToLower() == "usa";
     }

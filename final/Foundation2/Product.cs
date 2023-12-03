@@ -20,6 +20,12 @@ public class Product
     }
 
     // Getter methods for product details
-    public string GetName() => _name;
-    public string GetProductId() => _productId;
+    public string GetName()
+    {
+        return _name;
+    } 
+    public string GetProductId()
+    {
+        return _productId;
+    } 
 }

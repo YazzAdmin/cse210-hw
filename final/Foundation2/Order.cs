@@ -23,18 +23,18 @@ public class Order
             totalPrice += product.GetTotalPrice();
         }
 
-        decimal shippingCost = _customer.IsInUSA() ? 5 : 35;
+        decimal shippingCost = _customer.LivingInUSA() ? 5 : 35;
         return totalPrice + shippingCost;
     }
 
     public string GetPackingLabel()
     {
-        string packingLabel = "";
+        string Label = "";
         foreach (var product in _products)
         {
-            packingLabel += $"{product.GetName()} \n ID: {product.GetProductId()}\n";
+            Label += $"{product.GetName()} \n ID: {product.GetProductId()}\n";
         }
-        return packingLabel;
+        return Label;
     }
 
     public string GetShippingLabel()
