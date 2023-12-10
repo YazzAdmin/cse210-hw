@@ -28,7 +28,9 @@ class Program
         order2.AddProduct(product4);
         // forDisplaying Order Details
         Console.WriteLine("order1:");
+        Console.WriteLine("\n");
         Console.WriteLine("Packing Label:");
+        Console.WriteLine("\n");
         Console.WriteLine(order1.GetPackingLabel());
 
         Console.WriteLine("\nShipping Label:");
@@ -39,6 +41,7 @@ class Program
         // forDisplaying Order Details
         
         Console.WriteLine("\norder2:");
+        Console.WriteLine("\n");
         Console.WriteLine("Packing Label:");
         Console.WriteLine(order2.GetPackingLabel());
 

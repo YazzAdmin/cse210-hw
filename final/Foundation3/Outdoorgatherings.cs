@@ -1,3 +1,4 @@
+using System;
 public class OutdoorGathering : Event
 {
     private string _weatherForecast;

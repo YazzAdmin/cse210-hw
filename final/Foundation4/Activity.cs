@@ -27,6 +27,6 @@ public abstract class Activity
 
     public virtual string GetSummary()
     {
-        return $"~{_date.ToString("dd MMM yyyy")} ";
+        return $"~ {_date.ToString("dd MMM yyyy")} ";
     }
 }

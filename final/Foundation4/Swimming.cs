@@ -14,8 +14,7 @@ public class Swimming : Activity
         return _laps * 50 / 1000 * 0.62; // Distance (miles)
     }
 
-    public override double GetSpeed()
-    {
+    public override double GetSpeed(){   
         return _laps * 50 / 1000 / (GetLengthInMinutes() / 60.0); // Speed in mph
     }
 
